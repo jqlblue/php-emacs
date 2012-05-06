@@ -1,1 +1,3 @@
 this is my emacs configure ,clone from huhooemacs and add some php related configure
+note:
+to init emacs environment,execute the script init_env.sh
