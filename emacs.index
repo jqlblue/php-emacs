@@ -1,0 +1,85 @@
+;; -*- Emacs-Lisp -*-
+;; -*- coding:utf-8 -*-
+;;
+;; ------------------------------------------------------------------------------
+;;
+;; @file        .emacs
+;; @brief
+;; @author      iHuHoo.W (ihuhoo.w@gmail.com)
+;; @date        2011-01-12 17:09:13
+;;
+;;     Copyright (C) 2011 iHuHoo.W, all rights reserved.
+;; 
+;; ------------------------------------------------------------------------------
+;;
+
+;; auto load path below
+(defconst my-emacs-path              "~/.emacs.d/" "my emacs config file path")
+(defconst my-emacs-my-lisps-path     (concat my-emacs-path "my-lisp/") "my lisp package")
+(defconst my-emacs-vendor-lisps-path (concat my-emacs-path "site-lisp/") "the vendor lisp package")
+(defconst my-emacs-settings-path     (concat my-emacs-path "setting/") "my self emacs setting")
+
+;; add all subdir of 'my-emacs-path' to 'load-path'
+(load (concat my-emacs-my-lisps-path "my-subdirs"))
+(my-add-subdirs-to-load-path my-emacs-vendor-lisps-path)
+(my-add-subdirs-to-load-path my-emacs-my-lisps-path)
+(my-add-subdirs-to-load-path my-emacs-settings-path)
+
+;; ido
+(ido-mode 1)
+
+;; php settings
+(require 'php-settings)
+
+;; global-settings
+(require 'global-settings)
+
+;; cedet-settings
+;(require 'cedet-settings)
+
+(defun visit-.emacs ()
+  "visit .emacs file"
+  (interactive)
+  (find-file (concat "~/" ".emacs")))
+(global-set-key (kbd "C-x E") 'visit-.emacs)
+
+
+;; yasnippet
+;; (load "yasnippet-settings")
+
+;; auto complete
+(load "auto-complete-settings")
+
+;;session setting 
+(load "session-settings")
+
+;;font settings
+(load "font-settings")
+
+;; load w3m settings
+;(load "w3m-settings")
+
+;; load flymake-settings
+(load "flymake-settings")
+
+;; load doxymacs-1.8.0
+(load "doxymacs-settings")
+
+;; load recentf
+;;(load "recentf-settings")
+
+;; load ibuffer
+(require 'ibuffer)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;; emacs xcscope
+(require 'xcscope)
+
+;; emacs ascope
+(require 'ascope)
+
+;; thumbs  查看图片
+;(require 'thumbs)
+; mmm Modes
+;(autoload 'mmm-mode "mmm-mode" "Multiple Major Modes" t)
+;(autoload 'mmm-parse-buffer "mmm-mode" "Automatic MMM-ification" t)

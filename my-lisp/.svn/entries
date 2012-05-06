@@ -1,0 +1,76 @@
+8
+
+dir
+1
+file:///home/gaoyuan/svn/emacs/emacs/.emacs.d/my-lisp
+file:///home/gaoyuan/svn/emacs
+
+
+
+2012-04-12T09:38:18.362854Z
+1
+gaoyuan
+
+
+svn:special svn:externals svn:needs-lock
+
+generic-copy.el
+file
+
+
+
+
+2012-04-12T09:36:33.000000Z
+f1d0cb841c89c40f1740de636bb1f17d
+2012-04-12T09:38:18.362854Z
+1
+gaoyuan
+
+util.el
+file
+
+
+
+
+2012-04-12T09:36:33.000000Z
+bbe545c8deaddf27bfefa085c623ec96
+2012-04-12T09:38:18.362854Z
+1
+gaoyuan
+
+color-theme-console.el
+file
+
+
+
+
+2012-04-12T09:36:33.000000Z
+79a5c6ea311b34288b6f78c086458520
+2012-04-12T09:38:18.362854Z
+1
+gaoyuan
+
+my-subdirs.el
+file
+
+
+
+
+2012-04-12T09:36:33.000000Z
+a37fafcb14b0a6bafa218abb2212a886
+2012-04-12T09:38:18.362854Z
+1
+gaoyuan
+
+ahei-misc.el
+file
+
+
+
+
+2012-04-12T09:36:33.000000Z
+6182c71ab924d92de78bc9581e2720c0
+2012-04-12T09:38:18.362854Z
+1
+gaoyuan
+
