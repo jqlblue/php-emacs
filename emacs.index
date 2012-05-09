@@ -25,6 +25,13 @@
 (my-add-subdirs-to-load-path my-emacs-my-lisps-path)
 (my-add-subdirs-to-load-path my-emacs-settings-path)
 
+;; tramp
+(require 'tramp)
+(require 'password-cache)
+(setq tramp-default-user "gaoyuan")
+(setq tramp-default-method "ssh")
+(setq password-cache-expiry nil)
+
 ;; ido
 (ido-mode 1)
 
