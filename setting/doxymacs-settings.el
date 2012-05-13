@@ -2,13 +2,13 @@
 
 (add-hook 'c-mode-common-hook 'doxymacs-mode)
 (add-hook 'php-mode-common-hook 'doxymacs-mode)
-;(setq doxymacs-doxygen-style "php")
+(setq doxymacs-doxygen-style "php")
 
 (defconst doxymacs-php-file-comment-template
  '(
    "/**" > n
    "*" (if (buffer-file-name)
-       (file-name-nondirectory (buffer-file-name))
+   " "   (file-name-nondirectory (buffer-file-name))
      "") > n
    "*" " @desc"> n
    "*" > n
@@ -26,7 +26,6 @@
 	  'l
 	  "/** " '> 'n
 	  " * " 'p '> 'n
-	  " * " '> 'n
 	  (doxymacs-parm-tempo-element (cdr (assoc 'args next-func)))
 	  (unless
 	      (string-match "^[ \t\n]*void[ \t\n]*$"
@@ -40,18 +39,18 @@
 
 (defconst doxymacs-php-group-begin-comment-template
   ;; The leading space is a hack to get the indentation to work properly
-  '(" //@{" > n)
+  '(" /*" > n)
   "Default php-style template for beginning-of-group comment.")
 
 (defconst doxymacs-php-group-end-comment-template
   ;; The leading space is a hack to get the indentation to work properly
-  '(n " //@}" >)
+  '(n " */" >)
   "Default php-style template for end-of-group comment.")
 
 (defconst doxymacs-php-blank-multiline-comment-template
- '("/**" > n "* " p > n "* " > n "*/" > n)
+ '("/**" > n "* " p > n "* " > n "*/")
  "Default php-style template for a blank multiline doxygen comment.")
 
 (defconst doxymacs-php-blank-singleline-comment-template
- '("/// " > p)
+ '("// " > p)
  "Default php-style template for a blank single line doxygen comment.")

@@ -1114,6 +1114,7 @@ the completion or nil if canceled by the user."
    ((string= doxymacs-doxygen-style "JavaDoc") "@")
    ((string= doxymacs-doxygen-style "Qt") "\\")
    ((string= doxymacs-doxygen-style "C++") "@")
+   ((string= doxymacs-doxygen-style "php") "@")
    (t "@")))
 
 (defun doxymacs-user-mail-address ()
@@ -1193,6 +1194,10 @@ the completion or nil if canceled by the user."
 	  (list 'l "/// " (doxymacs-doxygen-command-char)
 		"param " (car parms) " " (list 'p prompt) '> 'n
 		(doxymacs-parm-tempo-element (cdr parms))))
+	 ((string= doxymacs-doxygen-style "php")
+	  (list 'l " * " (doxymacs-doxygen-command-char)
+		"param " (car parms) " " (list 'p prompt) '> 'n
+		(doxymacs-parm-tempo-element (cdr parms))))
 	 (t
 	  (doxymacs-invalid-style))))
     nil))
@@ -1263,7 +1268,7 @@ style."
   (error (concat
 	  "Invalid `doxymacs-doxygen-style': "
 	  doxymacs-doxygen-style
-	  ": must be one of \"JavaDoc\", \"Qt\" or \"C++\".")))
+	  ": must be one of \"JavaDoc\", \"Qt\", \"C++\" or \"php\".")))
 
 ;; This should make it easier to add new templates and cut down
 ;; on copy-and-paste programming.
@@ -1343,6 +1348,8 @@ the column given by `comment-column' (much like \\[indent-for-comment])."
 			"/*!< ")
 		       ((string= doxymacs-doxygen-style "C++")
 			"///< ")
+		       ((string= doxymacs-doxygen-style "php")
+			"/**< ")
 		       (t
 			(doxymacs-invalid-style)))))
 	 (skip (concat (regexp-quote starter) "*"))
@@ -1354,6 +1361,8 @@ the column given by `comment-column' (much like \\[indent-for-comment])."
 			" */")
 		       ((string= doxymacs-doxygen-style "C++")
 			"")
+		       ((string= doxymacs-doxygen-style "php")
+			" */")
 		       (t
 			(doxymacs-invalid-style))))))
     (if empty
@@ -1411,6 +1420,8 @@ the column given by `comment-column' (much like \\[indent-for-comment])."
 			"/*@{*/")
 		       ((string= doxymacs-doxygen-style "C++")
 			"/// @{")
+		       ((string= doxymacs-doxygen-style "php")
+			"//@{")
 		       (t
 			(doxymacs-invalid-style)))))
 	 (ender (or doxymacs-group-comment-end
@@ -1421,6 +1432,8 @@ the column given by `comment-column' (much like \\[indent-for-comment])."
 			"/*@}*/")
 		       ((string= doxymacs-doxygen-style "C++")
 			"/// @}")
+		       ((string= doxymacs-doxygen-style "php")
+			"//@}")
 		       (t
 			(doxymacs-invalid-style))))))
     (save-excursion
